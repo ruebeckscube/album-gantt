@@ -1,0 +1,211 @@
+project nil "MM Album" "1.0" 2022-10-03 +280d {
+}
+shift s40 "Part time shift" {
+  workinghours wed, thu, fri off
+}
+resource arr "Arrange" {
+  limits { weeklymax 10h }
+}
+resource mus "Music" {
+  limits { weeklymax 8h }
+}
+resource bus "Business" {
+  limits { weeklymax 2h }
+}
+resource mast "Mastering engineer" {
+  limits { weeklymax 10h }
+}
+task mm "MM Album" {
+  start 2022-10-03
+  task prep "Prep for recording" {
+    purge allocate
+    allocate mus
+    task finish "Finish arrangements" {
+      purge allocate
+      allocate arr
+      effort 40h
+    }
+    task test "Test out live recording/overdubbing" {
+      effort 5h
+    }
+    task gettech "Gather recording tech" {
+      effort 4h
+    }
+    task test_recording "Test recording tech in space" {
+      depends !gettech
+      effort 4h
+    }
+  }
+  task record "Record album" {
+    depends !prep
+    purge allocate
+    allocate mus
+    task practice "Practice practice" {
+      effort 8h
+    }
+    task live "Live recording session" {
+      depends !practice
+      effort 8h
+    }
+    task edit "Edit base live takes into final comp" {
+      depends !live
+      effort 8h
+    }
+    task record "Record overdubs" {
+      depends !edit
+      effort 8h
+    }
+  }
+  task post "Post-production" {
+    depends !record
+    purge allocate
+    allocate mus
+    task edit "Edit" {
+      task comp "Comp takes" {
+        effort 8h
+      }
+      task pitch "Pitch correction" {
+        effort 8h
+      }
+    }
+    task mix "Mix" {
+      depends !edit
+      task eq "EQ and Dynamics processing on each track" {
+        effort 10h
+      }
+      task fx "FX incl automation" {
+        effort 8h
+      }
+      task other "Other mixing" {
+        effort 10h
+      }
+    }
+    task get "Get it mastered" {
+      depends !mix
+      purge allocate
+      allocate mast
+      effort 20h
+    }
+  }
+  task after "After post-production" {
+    depends !post
+    purge allocate
+    allocate mus
+    task create "Create music videos" {
+      milestone
+    }
+  }
+  task prerel "Pre-release admin" {
+    purge allocate
+    allocate bus
+    task register "Register Publishing (ch 13)" {
+      milestone
+    }
+    task register_with "Register with PRO" {
+      milestone
+    }
+    task register_with_soundexchange "Register with SoundExchange" {
+      milestone
+    }
+    task get "Get on AllMusic.com and Discogs" {
+      milestone
+    }
+    task file "File copyrights" {
+      effort 3h
+    }
+    task submit "Submit to playlists" {
+      effort 6h
+    }
+    task upload "Upload to distributor" {
+      milestone
+    }
+    task get_licensing "Get licensing company (Ch 14)" {
+      milestone
+    }
+    task write "Write liner notes" {
+      milestone
+    }
+    task book "Book record release" {
+      milestone
+    }
+    task create "Create Folder of assets" {
+      milestone
+    }
+    task get_new "Get new promo photos" {
+      milestone
+    }
+    task write_new "Write new bio" {
+      milestone
+    }
+    task make "Make list of blogs to contact" {
+      milestone
+    }
+    task create_website "Create website" {
+      milestone
+    }
+    task rebrand "Rebrand socials" {
+      milestone
+    }
+    task create_merch "Create merch" {
+      milestone
+    }
+    task register_trademark "Register Trademark" {
+      milestone
+    }
+    task pick "Pick lead singles" {
+      milestone
+    }
+    task pick_physical "Pick physical distro stuff" {
+      milestone
+    }
+    task hit "Hit up local press for release" {
+      milestone
+    }
+    task upload_to "Upload to soundcloud/bandcamp" {
+      milestone
+    }
+    task create_youtube "Create Youtube Album playlist" {
+      milestone
+    }
+  }
+  task post_release "Post-release admin" {
+    depends !prerel
+    purge allocate
+    allocate bus
+    task submit "Submit to Pandora" {
+      milestone
+    }
+  }
+}
+textreport report "Plan" {
+  formats html
+  header '== MM Album Gantt =='
+
+  center -8<-
+    [#Plan Plan] | [#Resource_Allocation Resource Allocation]
+    ----
+    === Plan ===
+    <[report id="plan"]>
+    ----
+    === Resource Allocation ===
+    <[report id="resourceGraph"]>
+  ->8-
+}
+
+# A traditional Gantt chart with a project overview.
+taskreport plan "" {
+  headline "Project Plan"
+  columns bsi, name, start, end, effort, chart
+  loadunit shortauto
+  hideresource 1
+}
+
+# A graph showing resource allocation. It identifies whether each
+# resource is under- or over-allocated for.
+resourcereport resourceGraph "" {
+  headline "Resource Allocation Graph"
+  columns no, name, effort, weekly
+  loadunit shortauto
+  hidetask ~(isleaf() & isleaf_())
+  sorttasks plan.start.up
+}

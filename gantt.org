@@ -86,10 +86,13 @@
 *** TODO Get it mastered
 :PROPERTIES:
 :BLOCKER:
+:EFFORT:   20h
+:ALLOCATE: mast
 :END:
 ** TODO After post-production
 :PROPERTIES:
 :ALLOCATE: mus
+:BLOCKER:  post
 :END:
 *** TODO Create music videos
 - Need one for every song even if it's just lyric video
@@ -135,6 +138,7 @@
 ** TODO Post-release admin
 :PROPERTIES:
 :ALLOCATE: bus
+:BLOCKER:  prerel
 :END:
 *** TODO Submit to Pandora
 * Resources :taskjuggler_resource:
@@ -152,4 +156,9 @@
 :PROPERTIES:
 :resource_id: bus
 :limits: { weeklymax 2h }
+:END:
+** Mastering engineer
+:PROPERTIES:
+:resource_id: mast
+:limits: { weeklymax 10h }
 :END:

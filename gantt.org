@@ -1,0 +1,155 @@
+#+TITLE: MM Album Gantt
+
+#+COLUMNS: %25ITEM %TODO %4EFFORT %5ALLOCATE(allocate) %6TASK_ID(ID) %10BLOCKER
+* MM Album :taskjuggler_project:
+:PROPERTIES:
+:start: 2022-10-03
+:END:
+** TODO Prep for recording
+:PROPERTIES:
+:ALLOCATE: mus
+:TASK_ID:  prep
+:END:
+*** TODO Finish arrangements
+:PROPERTIES:
+:EFFORT:   40h
+:ALLOCATE: arr
+:END:
+*** TODO Test out live recording/overdubbing
+:PROPERTIES:
+:EFFORT:   5h
+:END:
+*** TODO Gather recording tech
+:PROPERTIES:
+:TASK_ID:  gettech
+:EFFORT:   4h
+:END:
+*** TODO Test recording tech in space
+:PROPERTIES:
+:BLOCKER:  gettech
+:EFFORT:   4h
+:END:
+** TODO Record album
+:PROPERTIES:
+:ALLOCATE: mus
+:TASK_ID:  record
+:BLOCKER:  prep
+:ORDERED:  t
+:END:
+*** TODO Practice practice
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+*** TODO Live recording session
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+*** TODO Edit base live takes into final comp
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+*** TODO Record overdubs
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+** TODO Post-production
+:PROPERTIES:
+:ALLOCATE: mus
+:TASK_ID:  post
+:BLOCKER:  record
+:ORDERED:  t
+:END:
+*** TODO Edit
+:PROPERTIES:
+:END:
+**** TODO Comp takes
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+**** TODO Pitch correction
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+*** TODO Mix
+**** TODO EQ and Dynamics processing on each track
+:PROPERTIES:
+:EFFORT:   10h
+:END:
+**** TODO FX incl automation
+:PROPERTIES:
+:EFFORT:   8h
+:END:
+**** TODO Other mixing
+:PROPERTIES:
+:EFFORT:   10h
+:END:
+*** TODO Get it mastered
+:PROPERTIES:
+:BLOCKER:
+:END:
+** TODO After post-production
+:PROPERTIES:
+:ALLOCATE: mus
+:END:
+*** TODO Create music videos
+- Need one for every song even if it's just lyric video
+** TODO Pre-release admin
+:PROPERTIES:
+:ALLOCATE: bus
+:TASK_ID:  prerel
+:END:
+- Mostly based on checklist 26 Things to Do Before You Release Your Song or Album from How to Make it in the New Music Business and the Album Release Timeline* TODO Get album artwork made
+*** TODO Register Publishing (ch 13)
+*** TODO Register with PRO
+*** TODO Register with SoundExchange
+*** TODO Get on AllMusic.com and Discogs
+*** TODO File copyrights
+:PROPERTIES:
+:EFFORT:   3h
+:END:
+*** TODO Submit to playlists
+:PROPERTIES:
+:EFFORT:   6h
+:END:
+*** TODO Upload to distributor
+- Make sure you collect for YouTube and SoundCloud
+*** TODO Get licensing company (Ch 14)
+*** TODO Write liner notes
+*** TODO Book record release
+*** TODO Create Folder of assets
+*** TODO Get new promo photos
+*** TODO Write new bio
+*** TODO Make list of blogs to contact
+*** TODO Create website
+*** TODO Rebrand socials
+*** TODO Create merch
+*** TODO Register Trademark
+- For band name and logo
+*** TODO Pick lead singles
+*** TODO Pick physical distro stuff
+*** TODO Hit up local press for release
+*** TODO Upload to soundcloud/bandcamp
+- If distro folks don't
+*** TODO Create Youtube Album playlist
+
+** TODO Post-release admin
+:PROPERTIES:
+:ALLOCATE: bus
+:END:
+*** TODO Submit to Pandora
+* Resources :taskjuggler_resource:
+** Arrange
+:PROPERTIES:
+:resource_id: arr
+:limits: { weeklymax 10h }
+:END:
+** Music
+:PROPERTIES:
+:resource_id: mus
+:limits: { weeklymax 8h }
+:END:
+** Business
+:PROPERTIES:
+:resource_id: bus
+:limits: { weeklymax 2h }
+:END:

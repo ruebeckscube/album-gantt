@@ -10,7 +10,7 @@ resource mus "Music" {
   limits { weeklymax 8h }
 }
 resource bus "Business" {
-  limits { weeklymax 2h }
+  limits { weeklymax 4h }
 }
 resource mast "Mastering engineer" {
   limits { weeklymax 10h }
@@ -91,81 +91,92 @@ task mm "MM Album" {
     depends !post
     purge allocate
     allocate mus
-    task create "Create music videos" {
-      milestone
+    task video "Create music videos" {
+      effort 20h
     }
   }
   task prerel "Pre-release admin" {
     purge allocate
     allocate bus
+    task get "Get album art made" {
+      effort 2h
+      priority 1000
+    }
     task register "Register Publishing (ch 13)" {
-      milestone
+      effort 3h
     }
     task register_with "Register with PRO" {
-      milestone
+      effort 3h
     }
     task register_with_soundexchange "Register with SoundExchange" {
-      milestone
+      effort .5h
     }
-    task get "Get on AllMusic.com and Discogs" {
-      milestone
+    task get_on "Get on AllMusic.com and Discogs" {
+      effort 2h
     }
     task file "File copyrights" {
+      depends !!record
       effort 3h
     }
     task submit "Submit to playlists" {
+      depends !dist
       effort 6h
     }
-    task upload "Upload to distributor" {
-      milestone
-    }
-    task get_licensing "Get licensing company (Ch 14)" {
-      milestone
+    task dist "Upload to distributor" {
+      depends !!post
+      effort 3h
     }
     task write "Write liner notes" {
-      milestone
+      depends !!record
+      effort 4h
     }
-    task book "Book record release" {
-      milestone
+    task book "Book record release show" {
+      effort 3h
+      priority 1000
     }
     task create "Create Folder of assets" {
-      milestone
+      effort 2h
     }
-    task get_new "Get new promo photos" {
-      milestone
+    task photo "Get new promo photos" {
+      effort 2h
+      priority 1000
     }
-    task write_new "Write new bio" {
-      milestone
+    task bio "Write new bio" {
+      effort 3h
     }
     task make "Make list of blogs to contact" {
-      milestone
+      effort 3h
     }
     task create_website "Create website" {
-      milestone
+      effort 4h
     }
     task rebrand "Rebrand socials" {
-      milestone
+      effort 1h
     }
     task create_merch "Create merch" {
-      milestone
+      effort 6h
     }
     task register_trademark "Register Trademark" {
-      milestone
+      effort 1h
     }
     task pick "Pick lead singles" {
-      milestone
+      depends !!post
+      effort 1h
     }
     task pick_physical "Pick physical distro stuff" {
-      milestone
+      effort 1h
+      priority 1000
     }
     task hit "Hit up local press for release" {
-      milestone
+      effort 4h
     }
-    task upload_to "Upload to soundcloud/bandcamp" {
-      milestone
+    task upload "Upload to soundcloud/bandcamp" {
+      depends !dist
+      effort 2h
     }
     task create_youtube "Create Youtube Album playlist" {
-      milestone
+      depends !!after.video
+      effort 1h
     }
   }
   task post_release "Post-release admin" {
@@ -173,7 +184,10 @@ task mm "MM Album" {
     purge allocate
     allocate bus
     task submit "Submit to Pandora" {
-      milestone
+      effort 1h
+    }
+    task get "Get licensing company (Ch 14)" {
+      effort 4h
     }
   }
 }
@@ -196,7 +210,7 @@ textreport report "Plan" {
 taskreport plan "" {
   headline "Project Plan"
   columns bsi, name, start, end, effort, chart
-  loadunit shortauto
+  loadunit hours
   hideresource 1
 }
 
@@ -205,7 +219,7 @@ taskreport plan "" {
 resourcereport resourceGraph "" {
   headline "Resource Allocation Graph"
   columns no, name, effort, weekly
-  loadunit shortauto
+  loadunit hours
   hidetask ~(isleaf() & isleaf_())
   sorttasks plan.start.up
 }

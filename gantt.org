@@ -4,6 +4,7 @@
 * MM Album :taskjuggler_project:
 :PROPERTIES:
 :start: 2022-10-03
+:loadunit: hours
 :END:
 ** TODO Prep for recording
 :PROPERTIES:
@@ -95,6 +96,10 @@
 :BLOCKER:  post
 :END:
 *** TODO Create music videos
+:PROPERTIES:
+:EFFORT:   20h
+:TASK_ID:  video
+:END:
 - Need one for every song even if it's just lyric video
 ** TODO Pre-release admin
 :PROPERTIES:
@@ -102,38 +107,113 @@
 :TASK_ID:  prerel
 :END:
 - Mostly based on checklist 26 Things to Do Before You Release Your Song or Album from How to Make it in the New Music Business and the Album Release Timeline* TODO Get album artwork made
+*** TODO [#A] Get album art made
+:PROPERTIES:
+:EFFORT:   2h
+:END:
 *** TODO Register Publishing (ch 13)
+:PROPERTIES:
+:EFFORT:   3h
+:END:
 *** TODO Register with PRO
+:PROPERTIES:
+:EFFORT:   3h
+:END:
 *** TODO Register with SoundExchange
+:PROPERTIES:
+:EFFORT:   .5h
+:END:
 *** TODO Get on AllMusic.com and Discogs
+:PROPERTIES:
+:EFFORT:   2h
+:END:
 *** TODO File copyrights
 :PROPERTIES:
 :EFFORT:   3h
+:BLOCKER:  record
 :END:
 *** TODO Submit to playlists
 :PROPERTIES:
 :EFFORT:   6h
+:BLOCKER:  dist
 :END:
 *** TODO Upload to distributor
+:PROPERTIES:
+:TASK_ID:  dist
+:EFFORT:   3h
+:BLOCKER:  post
+:END:
 - Make sure you collect for YouTube and SoundCloud
-*** TODO Get licensing company (Ch 14)
 *** TODO Write liner notes
-*** TODO Book record release
+:PROPERTIES:
+:BLOCKER:  record
+:EFFORT:   4h
+:END:
+*** TODO [#A] Book record release show
+:PROPERTIES:
+:EFFORT:   3h
+:END:
 *** TODO Create Folder of assets
-*** TODO Get new promo photos
+:PROPERTIES:
+:EFFORT:   2h
+:END:
+*** TODO [#A] Get new promo photos
+:PROPERTIES:
+:EFFORT:   2h
+:TASK_ID:  photo
+:END:
 *** TODO Write new bio
+:PROPERTIES:
+:EFFORT:   3h
+:TASK_ID:  bio
+:END:
 *** TODO Make list of blogs to contact
+:PROPERTIES:
+:EFFORT:   3h
+:END:
 *** TODO Create website
+:PROPERTIES:
+:EFFORT:   4h
+:BLOCKER:  photo,bio
+:END:
 *** TODO Rebrand socials
+:PROPERTIES:
+:EFFORT:   1h
+:END:
 *** TODO Create merch
+:PROPERTIES:
+:EFFORT:   6h
+:BLOCKER:  art
+:END:
 *** TODO Register Trademark
+:PROPERTIES:
+:EFFORT:   1h
+:END:
 - For band name and logo
 *** TODO Pick lead singles
-*** TODO Pick physical distro stuff
+:PROPERTIES:
+:EFFORT:   1h
+:BLOCKER:  post
+:END:
+*** TODO [#A] Pick physical distro stuff
+:PROPERTIES:
+:EFFORT:   1h
+:END:
 *** TODO Hit up local press for release
+:PROPERTIES:
+:EFFORT:   4h
+:END:
 *** TODO Upload to soundcloud/bandcamp
+:PROPERTIES:
+:EFFORT:   2h
+:BLOCKER:  dist
+:END:
 - If distro folks don't
 *** TODO Create Youtube Album playlist
+:PROPERTIES:
+:EFFORT:   1h
+:BLOCKER:  video
+:END:
 
 ** TODO Post-release admin
 :PROPERTIES:
@@ -141,6 +221,13 @@
 :BLOCKER:  prerel
 :END:
 *** TODO Submit to Pandora
+:PROPERTIES:
+:EFFORT:   1h
+:END:
+*** TODO Get licensing company (Ch 14)
+:PROPERTIES:
+:EFFORT:   4h
+:END:
 * Resources :taskjuggler_resource:
 ** Arrange
 :PROPERTIES:
@@ -155,7 +242,7 @@
 ** Business
 :PROPERTIES:
 :resource_id: bus
-:limits: { weeklymax 2h }
+:limits: { weeklymax 4h }
 :END:
 ** Mastering engineer
 :PROPERTIES:

@@ -3,8 +3,9 @@
 #+COLUMNS: %25ITEM %TODO %4EFFORT %5ALLOCATE(allocate) %6TASK_ID(ID) %10BLOCKER
 * MM Album :taskjuggler_project:
 :PROPERTIES:
-:start: 2022-10-03
+:start: 2022-10-02
 :loadunit: hours
+:weekstartssunday:
 :END:
 ** TODO Prep for recording
 :PROPERTIES:
@@ -15,6 +16,7 @@
 :PROPERTIES:
 :EFFORT:   40h
 :ALLOCATE: arr
+:start: 2022-10-9
 :END:
 *** TODO Test out live recording/overdubbing
 :PROPERTIES:
@@ -110,6 +112,8 @@
 *** TODO [#A] Get album art made
 :PROPERTIES:
 :EFFORT:   2h
+:BLOCKER:  record
+:TASK_ID:  art
 :END:
 *** TODO Register Publishing (ch 13)
 :PROPERTIES:
@@ -141,17 +145,19 @@
 :PROPERTIES:
 :TASK_ID:  dist
 :EFFORT:   3h
-:BLOCKER:  post
+:BLOCKER:  post, art, notes
 :END:
 - Make sure you collect for YouTube and SoundCloud
 *** TODO Write liner notes
 :PROPERTIES:
 :BLOCKER:  record
 :EFFORT:   4h
+:TASK_ID:  notes
 :END:
 *** TODO [#A] Book record release show
 :PROPERTIES:
 :EFFORT:   3h
+:BLOCKER:  record
 :END:
 *** TODO Create Folder of assets
 :PROPERTIES:
@@ -161,6 +167,7 @@
 :PROPERTIES:
 :EFFORT:   2h
 :TASK_ID:  photo
+:BLOCKER:  record
 :END:
 *** TODO Write new bio
 :PROPERTIES:
@@ -174,11 +181,12 @@
 *** TODO Create website
 :PROPERTIES:
 :EFFORT:   4h
-:BLOCKER:  photo,bio
+:BLOCKER:  photo, bio
 :END:
 *** TODO Rebrand socials
 :PROPERTIES:
 :EFFORT:   1h
+:BLOCKER:  photo, bio
 :END:
 *** TODO Create merch
 :PROPERTIES:
@@ -202,6 +210,7 @@
 *** TODO Hit up local press for release
 :PROPERTIES:
 :EFFORT:   4h
+:BLOCKER:  record
 :END:
 *** TODO Upload to soundcloud/bandcamp
 :PROPERTIES:

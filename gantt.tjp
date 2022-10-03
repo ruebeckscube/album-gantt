@@ -1,4 +1,5 @@
-project nil "MM Album" "1.0" 2022-10-03 +280d {
+project nil "MM Album" "1.0" 2022-10-02 +280d {
+  weekstartssunday 
 }
 shift s40 "Part time shift" {
   workinghours wed, thu, fri off
@@ -16,7 +17,7 @@ resource mast "Mastering engineer" {
   limits { weeklymax 10h }
 }
 task mm "MM Album" {
-  start 2022-10-03
+  start 2022-10-02
   task prep "Prep for recording" {
     purge allocate
     allocate mus
@@ -24,6 +25,7 @@ task mm "MM Album" {
       purge allocate
       allocate arr
       effort 40h
+      start 2022-10-9
     }
     task test "Test out live recording/overdubbing" {
       effort 5h
@@ -98,7 +100,8 @@ task mm "MM Album" {
   task prerel "Pre-release admin" {
     purge allocate
     allocate bus
-    task get "Get album art made" {
+    task art "Get album art made" {
+      depends !!record
       effort 2h
       priority 1000
     }
@@ -111,7 +114,7 @@ task mm "MM Album" {
     task register_with_soundexchange "Register with SoundExchange" {
       effort .5h
     }
-    task get_on "Get on AllMusic.com and Discogs" {
+    task get "Get on AllMusic.com and Discogs" {
       effort 2h
     }
     task file "File copyrights" {
@@ -123,14 +126,15 @@ task mm "MM Album" {
       effort 6h
     }
     task dist "Upload to distributor" {
-      depends !!post
+      depends !!post, !art, !notes
       effort 3h
     }
-    task write "Write liner notes" {
+    task notes "Write liner notes" {
       depends !!record
       effort 4h
     }
     task book "Book record release show" {
+      depends !!record
       effort 3h
       priority 1000
     }
@@ -138,6 +142,7 @@ task mm "MM Album" {
       effort 2h
     }
     task photo "Get new promo photos" {
+      depends !!record
       effort 2h
       priority 1000
     }
@@ -148,12 +153,15 @@ task mm "MM Album" {
       effort 3h
     }
     task create_website "Create website" {
+      depends !photo, !bio
       effort 4h
     }
     task rebrand "Rebrand socials" {
+      depends !photo, !bio
       effort 1h
     }
     task create_merch "Create merch" {
+      depends !art
       effort 6h
     }
     task register_trademark "Register Trademark" {
@@ -168,6 +176,7 @@ task mm "MM Album" {
       priority 1000
     }
     task hit "Hit up local press for release" {
+      depends !!record
       effort 4h
     }
     task upload "Upload to soundcloud/bandcamp" {

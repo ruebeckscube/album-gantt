@@ -203,7 +203,7 @@
 :EFFORT:   1h
 :BLOCKER:  post
 :END:
-*** TODO [#A] Pick physical distro stuff
+*** DONE [#A] Pick physical distro stuff
 :PROPERTIES:
 :EFFORT:   1h
 :END:

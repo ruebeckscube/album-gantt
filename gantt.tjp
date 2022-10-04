@@ -172,6 +172,7 @@ task mm "MM Album" {
       effort 1h
     }
     task pick_physical "Pick physical distro stuff" {
+      complete 100
       effort 1h
       priority 1000
     }
@@ -218,7 +219,7 @@ textreport report "Plan" {
 # A traditional Gantt chart with a project overview.
 taskreport plan "" {
   headline "Project Plan"
-  columns bsi, name, start, end, effort, chart
+  columns bsi, name, effort, complete, chart
   loadunit hours
   hideresource 1
 }
@@ -227,7 +228,7 @@ taskreport plan "" {
 # resource is under- or over-allocated for.
 resourcereport resourceGraph "" {
   headline "Resource Allocation Graph"
-  columns no, name, effort, weekly
+  columns no, name, effort, complete, weekly
   loadunit hours
   hidetask ~(isleaf() & isleaf_())
   sorttasks plan.start.up

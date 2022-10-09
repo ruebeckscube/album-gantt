@@ -131,6 +131,7 @@
 *** TODO Get on AllMusic.com and Discogs
 :PROPERTIES:
 :EFFORT:   2h
+:BLOCKER:  record
 :END:
 *** TODO File copyrights
 :PROPERTIES:

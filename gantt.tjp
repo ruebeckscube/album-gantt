@@ -116,6 +116,7 @@ task mm "MM Album" {
       effort .5h
     }
     task get "Get on AllMusic.com and Discogs" {
+      depends !!record
       effort 2h
     }
     task file "File copyrights" {

@@ -118,6 +118,7 @@
 *** TODO Register Publishing (ch 13)
 :PROPERTIES:
 :EFFORT:   3h
+:BLOCKER:  record
 :END:
 *** TODO Register with PRO
 :PROPERTIES:

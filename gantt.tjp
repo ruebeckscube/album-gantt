@@ -106,6 +106,7 @@ task mm "MM Album" {
       priority 1000
     }
     task register "Register Publishing (ch 13)" {
+      depends !!record
       effort 3h
     }
     task register_with "Register with PRO" {
